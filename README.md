@@ -14,7 +14,7 @@ MVP mobile-first para buscar canchas y consultar por WhatsApp. Next.js App Route
 
 ## Instalación
 
-Node.js 22 o superior; se desarrolló con Node 24 y npm 11.
+Node.js 24.x y npm 11. La versión queda fijada en `package.json` y `.nvmrc` para usar el mismo runtime en desarrollo y despliegue. `npm run build` comprueba primero que Firebase Admin Auth y Firestore se puedan cargar, sin conectarse a Firebase ni utilizar credenciales.
 
 ```sh
 npm ci
@@ -168,7 +168,7 @@ Agregar `--apply --project=sinte-7dbec` solamente con autorización. Crea o reut
 
 ## Despliegue
 
-Vercel: proyecto Next.js estándar, comando `npm run build`, variables del entorno y dominio autorizado en Firebase Authentication. `SINTE_DEMO_MODE=false` para datos reales y `SINTE_SHOW_DEMO_ESTABLISHMENTS=false` para ocultar ejemplos.
+Vercel: proyecto Next.js estándar, Node.js 24.x, comando `npm run build`, variables del entorno y dominio autorizado en Firebase Authentication. `engines.node` en `package.json` fija la versión para los nuevos despliegues. No configurar `NODE_OPTIONS=--no-experimental-require-module`: Firebase Admin utiliza una dependencia que carga `jose` como módulo ES desde CommonJS. Después de cambiar el runtime se necesita un nuevo deploy. `SINTE_DEMO_MODE=false` para datos reales y `SINTE_SHOW_DEMO_ESTABLISHMENTS=false` para ocultar ejemplos.
 
 VPS: instalar Node, ejecutar `npm ci` y `npm run build`, configurar las variables privadas y ejecutar `npm start` detrás de un proxy HTTPS. Mantener el proceso con el supervisor del servidor. También se genera `.next/standalone`; para ese formato copiar `public` y `.next/static` junto al servidor standalone según la documentación de Next.js. No hay dependencia de cron, almacenamiento de disco en runtime ni servicios exclusivos de Vercel.
 
