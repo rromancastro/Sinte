@@ -1,0 +1,27 @@
+{
+  "name": "sinte",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --conditions=react-server --test tests/*.test.js",
+    "seed": "node --env-file=.env.local scripts/seed.mjs",
+    "owner": "node --env-file=.env.local scripts/owner.mjs",
+    "assets": "node scripts/prepare-assets.mjs",
+    "component": "node scripts/generate-component.mjs",
+    "section": "node scripts/generate-section.mjs"
+  },
+  "dependencies": {
+    "firebase": "13.4.0",
+    "firebase-admin": "14.5.1",
+    "next": "16.4.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sass": "1.108.2",
+    "server-only": "0.0.1",
+    "sharp": "0.34.5"
+  }
+}

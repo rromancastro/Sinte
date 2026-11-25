@@ -1,0 +1,1 @@
+export const Icon = ({name,className=''}) => <span aria-hidden='true' className={`icon ${className}`} style={{maskImage:`url(/images/icons/${name}.svg)`,WebkitMaskImage:`url(/images/icons/${name}.svg)`}} />;

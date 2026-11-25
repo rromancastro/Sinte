@@ -1,0 +1,4 @@
+@use '../../../styles/variables' as v;
+.homeView{max-width:480px;.homeSearch h1{text-align:center;font-size:24px;letter-spacing:-.7px;white-space:nowrap;span{color:v.$lime;}}.homeSubtitle{text-align:center;color:v.$muted;font-size:12px;margin:9px 0 20px;}.featuredSection{margin-top:22px;h2{font-size:18px;margin-bottom:5px;}>p{font-size:12px;margin-bottom:14px;}}.featuredList{display:grid;gap:8px;}}
+@media(max-width:370px){.homeView .homeSearch h1{font-size:21px;}}
+@media(min-width:768px){.homeView{max-width:1120px;.homeColumns{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin:48px 0;}.homeSearch{padding-top:24px;h1{font-size:29px;}.homeSubtitle{font-size:14px;}}.featuredSection{margin-top:0;h2{font-size:22px;}>p{font-size:14px;}}.featuredList{gap:12px;}}}

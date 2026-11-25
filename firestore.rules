@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function owns(establishmentId) {
+      return signedIn()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.active == true
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'owner'
+        && establishmentId in get(/databases/$(database)/documents/users/$(request.auth.uid)).data.establishmentIds;
+    }
+    match /cities/{id} { allow read: if resource.data.active == true; allow write: if false; }
+    match /establishments/{id} { allow read: if resource.data.active == true || owns(id); allow write: if false; }
+    match /courts/{id} {
+      allow read: if owns(resource.data.establishmentId) || (resource.data.active == true && get(/databases/$(database)/documents/establishments/$(resource.data.establishmentId)).data.active == true);
+      allow write: if false;
+    }
+    match /availability/{id} { allow read: if owns(resource.data.establishmentId); allow write: if false; }
+    match /users/{uid} { allow get: if signedIn() && request.auth.uid == uid; allow list, write: if false; }
+    match /settings/public { allow read: if true; allow write: if false; }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

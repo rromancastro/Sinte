@@ -1,0 +1,16 @@
+{
+  "indexes": [
+    {"collectionGroup":"courts","queryScope":"COLLECTION","fields":[{"fieldPath":"cityId","order":"ASCENDING"},{"fieldPath":"active","order":"ASCENDING"},{"fieldPath":"type","order":"ASCENDING"},{"fieldPath":"weeklyKeys","arrayConfig":"CONTAINS"}]},
+    {"collectionGroup":"courts","queryScope":"COLLECTION","fields":[{"fieldPath":"establishmentId","order":"ASCENDING"},{"fieldPath":"active","order":"ASCENDING"}]},
+    {"collectionGroup":"availability","queryScope":"COLLECTION","fields":[{"fieldPath":"cityId","order":"ASCENDING"},{"fieldPath":"date","order":"ASCENDING"},{"fieldPath":"courtType","order":"ASCENDING"}]},
+    {"collectionGroup":"availability","queryScope":"COLLECTION","fields":[{"fieldPath":"establishmentId","order":"ASCENDING"},{"fieldPath":"date","order":"ASCENDING"}]},
+    {"collectionGroup":"establishments","queryScope":"COLLECTION","fields":[{"fieldPath":"cityId","order":"ASCENDING"},{"fieldPath":"active","order":"ASCENDING"},{"fieldPath":"featured","order":"ASCENDING"}]}
+  ],
+  "fieldOverrides": [
+    {"collectionGroup":"analytics","fieldPath":"recent","indexes":[]},
+    {"collectionGroup":"courts","fieldPath":"weeklySchedule","indexes":[]},
+    {"collectionGroup":"courts","fieldPath":"recurringBlocks","indexes":[]},
+    {"collectionGroup":"availability","fieldPath":"slots","indexes":[]},
+    {"collectionGroup":"establishments","fieldPath":"description","indexes":[]}
+  ]
+}

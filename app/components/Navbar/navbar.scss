@@ -1,0 +1,4 @@
+@use '../../../styles/variables' as v;
+.navbar{height:48px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:8px;.brand{display:flex;align-items:center;justify-content:center;img{width:80px;height:27px;object-fit:contain;}}.backLink{position:absolute;left:0;display:grid;place-items:center;width:44px;height:44px;margin-left:-10px;}.ownerLink{border:1px solid v.$border;border-radius:24px;padding:7px 11px;font-size:10px;color:v.$text;}.ownerCaption{position:absolute;right:0;color:v.$muted;font-size:11px;}}
+.navbar-home{justify-content:space-between;}
+@media(min-width:768px){.navbar{height:64px;margin-bottom:24px;.brand img{width:106px;height:35px;}.ownerLink{font-size:13px;padding:10px 16px;}}}

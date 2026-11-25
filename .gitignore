@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+coverage/
+.env*
+!.env.example
+*service-account*.json
+*firebase-adminsdk*.json
+*.pem
+.vercel/
+*.log
+.DS_Store
+credentials/
