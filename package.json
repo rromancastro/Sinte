@@ -18,6 +18,11 @@
     "component": "node scripts/generate-component.mjs",
     "section": "node scripts/generate-section.mjs"
   },
+  "overrides": {
+    "jwks-rsa": {
+      "jose": "5.10.0"
+    }
+  },
   "dependencies": {
     "firebase": "13.4.0",
     "firebase-admin": "14.5.1",
